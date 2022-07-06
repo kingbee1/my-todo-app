@@ -1,10 +1,13 @@
 import React from 'react'
 
-const Form = ({inputText, setInputText, todos, setTodos}) => {
+const Form = ({inputText, setInputText, todos, setTodos, option, setOption}) => {
 
     const inputChange = e => {
-        setInputText(e.target.value)
-        
+        setInputText(e.target.value) 
+    }
+
+    const selectChange = e => {
+        setOption(e.target.value)
     }
 
     const inputSubmit = () => {
@@ -25,7 +28,15 @@ const Form = ({inputText, setInputText, todos, setTodos}) => {
 
         <div className="input-button">
             <input type='text' value={inputText} onChange={inputChange} />
-            <button onClick={inputSubmit}>Add</button>
+            <button onClick={inputSubmit}>ADD</button>
+        </div>
+
+        <div className="select">
+            <select name="todos" className='change' onChange={selectChange} >
+            <option value="all">All</option>
+            <option value="finished">Finished</option>
+            <option value="uncompleted">Uncompleted</option>
+            </select>
         </div>
       
     </div>
